@@ -155,27 +155,27 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
       <div className="container mx-auto max-w-6xl p-6">
-        <header className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <FileText className="w-8 h-8 text-primary-dark" />
-              <h1 className="text-3xl font-bold text-primary-dark">
-                Meet the Moment
-              </h1>
-            </div>
+        <header className="mb-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="text-2xl">📋</span>
+            <h1 className="text-3xl font-bold text-gray-800">
+              Executive Meeting Agenda
+            </h1>
+          </div>
+          <p className="text-gray-600 text-sm mb-4">
+            Transform your executive briefing into an interactive meeting agenda
+          </p>
+          <div className="flex justify-end">
             <button
               onClick={() => setShowShortcuts(!showShortcuts)}
-              className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-primary-dark transition-colors"
+              className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
             >
               <Keyboard size={16} />
               Shortcuts
             </button>
           </div>
-          <p className="text-text-secondary">
-            Transform your executive briefing into an interactive meeting agenda
-          </p>
         </header>
 
         {showShortcuts && (
@@ -242,9 +242,12 @@ Example format:
         ) : (
           <>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold text-text-primary">
-                Meeting Agenda ({agendaItems.length} items)
-              </h2>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">📋</span>
+                <h2 className="text-xl font-semibold text-gray-800">
+                  Executive Meeting Agenda ({agendaItems.length} items)
+                </h2>
+              </div>
               <div className="flex gap-3">
                 <button
                   onClick={() => handleExport('clipboard')}
@@ -276,7 +279,8 @@ Example format:
               </div>
             )}
 
-            <div className="space-y-4">
+            <div className="bg-white bg-opacity-95 rounded-xl p-6 shadow-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
@@ -298,11 +302,13 @@ Example format:
                         item={item}
                         onUpdate={handleItemUpdate}
                         onStatusChange={handleStatusChange}
+                        onPriorityChange={handlePriorityChange}
                       />
                     </div>
                   ))}
                 </SortableContext>
               </DndContext>
+              </div>
 
               {parkingLotItems.length > 0 && (
                 <div className="mt-8 p-4 bg-orange-50 rounded-lg border border-orange-200">

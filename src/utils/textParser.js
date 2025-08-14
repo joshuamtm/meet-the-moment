@@ -5,13 +5,17 @@ export const parseBriefingText = (text) => {
   let itemId = 1;
 
   const priorityMap = {
-    'CRITICAL': { level: 1, color: '#EF4444', label: 'Critical' },
-    'IMMEDIATE': { level: 1, color: '#EF4444', label: 'Critical' },
-    'URGENT': { level: 2, color: '#F97316', label: 'Urgent' },
-    'HIGH': { level: 3, color: '#EAB308', label: 'High' },
-    'MEDIUM': { level: 4, color: '#3B82F6', label: 'Medium' },
-    'ONGOING': { level: 5, color: '#8B5CF6', label: 'Ongoing' },
-    'LOW': { level: 5, color: '#8B5CF6', label: 'Low' }
+    'CRITICAL': { level: 1, color: '#e74c3c', label: 'IMMEDIATE' },
+    'IMMEDIATE': { level: 1, color: '#e74c3c', label: 'IMMEDIATE' },
+    'TODAY': { level: 1, color: '#e74c3c', label: 'TODAY' },
+    'URGENT': { level: 2, color: '#e67e22', label: 'URGENT' },
+    'HIGH': { level: 3, color: '#f39c12', label: 'HIGH' },
+    'SEPT': { level: 3, color: '#f39c12', label: 'SEPT' },
+    'OCT': { level: 4, color: '#3498db', label: 'OCT' },
+    'MEDIUM': { level: 4, color: '#3498db', label: 'MEDIUM' },
+    'ONGOING': { level: 5, color: '#9b59b6', label: 'ONGOING' },
+    'Q4': { level: 6, color: '#27ae60', label: 'Q4' },
+    'LOW': { level: 6, color: '#27ae60', label: 'LOW' }
   };
 
   const detectPriority = (text) => {
