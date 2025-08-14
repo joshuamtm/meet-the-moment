@@ -159,15 +159,15 @@ function App() {
       <div className="container mx-auto max-w-6xl p-6">
         <header className="mb-8 text-center">
           <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="text-2xl">📋</span>
-            <h1 className="text-3xl font-bold text-gray-800">
+            <FileText className="w-8 h-8 text-gray-700" />
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
               Executive Meeting Agenda
             </h1>
           </div>
-          <p className="text-gray-600 text-sm mb-4">
+          <p className="text-gray-600 text-sm mb-4 px-4">
             Transform your executive briefing into an interactive meeting agenda
           </p>
-          <div className="flex justify-end">
+          <div className="flex justify-end px-4">
             <button
               onClick={() => setShowShortcuts(!showShortcuts)}
               className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors"
@@ -218,15 +218,17 @@ Example format:
                 <button
                   onClick={handleTextParse}
                   disabled={!inputText.trim()}
-                  className="px-4 py-2 bg-primary-teal text-white rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] font-medium"
+                  aria-label="Generate agenda from text"
                 >
                   Generate Agenda
                 </button>
                 <button
                   onClick={handleClear}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors min-h-[44px] flex items-center gap-2"
+                  aria-label="Clear input text"
                 >
-                  <RefreshCw size={16} className="inline mr-2" />
+                  <RefreshCw size={16} />
                   Clear
                 </button>
               </div>
@@ -241,31 +243,36 @@ Example format:
           </div>
         ) : (
           <>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-xl">📋</span>
-                <h2 className="text-xl font-semibold text-gray-800">
-                  Executive Meeting Agenda ({agendaItems.length} items)
+                <FileText className="w-6 h-6 text-gray-700" />
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
+                  Meeting Agenda ({agendaItems.length} items)
                 </h2>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 <button
                   onClick={() => handleExport('clipboard')}
-                  className="px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  className="px-3 sm:px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-2 text-sm sm:text-base min-h-[44px]"
+                  aria-label="Copy agenda to clipboard"
                 >
                   <Copy size={16} />
-                  Copy to Clipboard
+                  <span className="hidden sm:inline">Copy to Clipboard</span>
+                  <span className="sm:hidden">Copy</span>
                 </button>
                 <button
                   onClick={() => handleExport('download')}
-                  className="px-4 py-2 bg-primary-teal text-white rounded-lg hover:bg-primary-dark transition-colors flex items-center gap-2"
+                  className="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 text-sm sm:text-base min-h-[44px]"
+                  aria-label="Export agenda as markdown"
                 >
                   <Download size={16} />
-                  Export Markdown
+                  <span className="hidden sm:inline">Export Markdown</span>
+                  <span className="sm:hidden">Export</span>
                 </button>
                 <button
                   onClick={handleClear}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                  className="px-3 sm:px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors min-h-[44px] flex items-center justify-center"
+                  aria-label="Clear all items"
                 >
                   <RefreshCw size={16} />
                 </button>
@@ -279,8 +286,8 @@ Example format:
               </div>
             )}
 
-            <div className="bg-white bg-opacity-95 rounded-xl p-6 shadow-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-white bg-opacity-95 rounded-xl p-4 sm:p-6 shadow-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}

@@ -5,17 +5,18 @@ export const parseBriefingText = (text) => {
   let itemId = 1;
 
   const priorityMap = {
-    'CRITICAL': { level: 1, color: '#e74c3c', label: 'IMMEDIATE' },
-    'IMMEDIATE': { level: 1, color: '#e74c3c', label: 'IMMEDIATE' },
-    'TODAY': { level: 1, color: '#e74c3c', label: 'TODAY' },
-    'URGENT': { level: 2, color: '#e67e22', label: 'URGENT' },
-    'HIGH': { level: 3, color: '#f39c12', label: 'HIGH' },
-    'SEPT': { level: 3, color: '#f39c12', label: 'SEPT' },
-    'OCT': { level: 4, color: '#3498db', label: 'OCT' },
-    'MEDIUM': { level: 4, color: '#3498db', label: 'MEDIUM' },
-    'ONGOING': { level: 5, color: '#9b59b6', label: 'ONGOING' },
-    'Q4': { level: 6, color: '#27ae60', label: 'Q4' },
-    'LOW': { level: 6, color: '#27ae60', label: 'LOW' }
+    'CRITICAL': { level: 1, color: '#dc2626', label: 'Critical' },
+    'IMMEDIATE': { level: 1, color: '#dc2626', label: 'Critical' },
+    'TODAY': { level: 1, color: '#dc2626', label: 'Critical' },
+    'URGENT': { level: 2, color: '#ea580c', label: 'High' },
+    'HIGH': { level: 2, color: '#ea580c', label: 'High' },
+    'IMPORTANT': { level: 2, color: '#ea580c', label: 'High' },
+    'MEDIUM': { level: 3, color: '#3b82f6', label: 'Medium' },
+    'NORMAL': { level: 3, color: '#3b82f6', label: 'Medium' },
+    'LOW': { level: 4, color: '#10b981', label: 'Low' },
+    'MINOR': { level: 4, color: '#10b981', label: 'Low' },
+    'ONGOING': { level: 5, color: '#8b5cf6', label: 'Ongoing' },
+    'RECURRING': { level: 5, color: '#8b5cf6', label: 'Ongoing' }
   };
 
   const detectPriority = (text) => {
@@ -25,7 +26,7 @@ export const parseBriefingText = (text) => {
         return config;
       }
     }
-    return { level: 4, color: '#3B82F6', label: 'Medium' };
+    return { level: 3, color: '#3b82f6', label: 'Medium' };
   };
 
   for (let i = 0; i < lines.length; i++) {
@@ -93,7 +94,7 @@ export const parseBriefingText = (text) => {
       description: text.trim().substring(0, 200),
       rationale: '',
       targetOutcome: '',
-      priority: { level: 4, color: '#3B82F6', label: 'Medium' },
+      priority: { level: 3, color: '#3b82f6', label: 'Medium' },
       status: 'open',
       order: 0
     });
