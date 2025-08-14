@@ -26,7 +26,7 @@ Meet the Moment is a stateless web application designed for meeting facilitators
 ## 🚀 Quick Start
 
 ### Live Demo
-Visit the deployed application: [Meet the Moment Dashboard](https://meet-the-moment.netlify.app)
+Visit the deployed application: [Meet the Moment Dashboard](https://stellar-lily-ed9720.netlify.app)
 
 ### Local Development
 
