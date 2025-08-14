@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-teal: #5EEAD4;
+    --primary-dark: #0F766E;
+    --bg-cream: #FEF9E7;
+    --accent-yellow: #FDE68A;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --border-light: #E2E8F0;
+  }
+
+  body {
+    @apply bg-cream text-text-primary;
+  }
+}
